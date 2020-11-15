@@ -1,0 +1,16 @@
+{
+    "name": "sa_code_editor",
+    "version": "1.0.0",
+    "description": "",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron ."
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {},
+    "devDependencies": {
+        "electron": "^10.1.5"
+    }
+}

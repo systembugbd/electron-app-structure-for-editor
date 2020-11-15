@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>SACodeEditor</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/menu.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <script>
+        if (typeof module === 'object') {
+            window.module = module;
+            module = undefined;
+        }
+    </script>
+
+
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <!--Start Header Title Bar-->
+        <div class="row head topBarWrapper">
+            <div class="topBar__titlebar dselection">
+                <span class="titlebar__logo dragbale"><img src="assets/logo.png" width="auto" height="40"></span>
+                <div class="titlebar__menu">
+
+
+                    <div id="menu-bar">
+                        <ul class="main-menu" id="menu">
+                            <li class="parent">
+                                File
+                                <ul class="child">
+
+                                    <li class="icon save" onclick='createNewFile()'><a href="#">New File<span>Ctrl+N</span></a></li>
+                                    <li>New Folder</li>
+
+                                    <li class="separator"></li>
+                                    <li class="icon save" onclick='saveFile()'><a href="javascript:void(0)">Save<span>Ctrl+S</span></a></li>
+
+                                    <li class="icon save" onclick="showSaveDialogAndSaveFile()"><a href="javascript:void(0)">Save As</a></li>
+
+                                    <li class="separator"></li>
+
+                                </ul>
+                            </li>
+                            <li class="parent">
+                                View
+                                <ul class="child">
+                                    <li class="parent">>Documents
+                                        <ul class="child">
+                                            <li>All</li>
+                                            <li class="separator"></li>
+                                            <li>Unfinished</li>
+                                            <li>Closed</li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/#!/products">Products</a></li>
+                                    <li class="separator"></li>
+                                    <li class="parent">
+                                        First level
+                                        <ul class="child">
+                                            <li class="parent">
+                                                Second level
+                                                <ul class="child">
+                                                    <li>
+                                                        Third level menu item
+                                                    </li>
+                                                    <li class="parent">
+                                                        Third level
+                                                        <ul class="child">
+                                                            <li>
+                                                                Forth level menu item 1
+                                                            </li>
+                                                            <li>
+                                                                Forth level menu item 2
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="separator"></li>
+                                                    <li>Another third level menu item</li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                Items will make menus stretch as needed
+                                            </li>
+                                            <li class="separator"></li>
+                                            <li>
+                                                Another menu item
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="separator"></li>
+                                    <li class="parent">Reports
+                                        <ul class="child">
+                                            <li>Sell history</li>
+                                            <li>Clients history</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="parent">
+                                Window
+                                <ul class="child">
+                                    <li class="icon save"><a href="javascript:void(0)">Full Screen<span>F11</span></a></li>
+
+                                    <li>
+                                        <a href="javascript:void(0)" onclick='toggleWidgets()'>Widgets<span><input type='checkbox' id='widgetCheckbox'></span></a>
+                                    </li>
+                                    <li class="separator"></li>
+                                    <li>
+                                        Options
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="parent">
+                                Tools
+                                <ul class="child">
+                                    <li class="parent">Load Snippets
+                                        <ul class="child">
+                                            <li>HTML</li>
+                                            <li>CSS</li>
+                                            <li>JS</li>
+                                            <li>HTML</li>
+                                            <li>CSS</li>
+                                            <li>JS</li>
+                                            <li>HTML</li>
+                                            <li>CSS</li>
+                                            <li>JS</li>
+                                            <li>HTML</li>
+                                            <li>CSS</li>
+                                            <li>JS</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="parent">
+                                Settings
+                                <ul class="child">
+                                    <li onclick='settings("theme")'>Themes</li>
+                                    <li class="separator"></li>
+                                    <li>Upgrade account</li>
+                                    <li>Registration</li>
+                                    <li class="separator"></li>
+                                    <li>Contact us</li>
+                                </ul>
+                            </li>
+
+                            <li class="parent">
+                                Help
+                                <ul class="child">
+                                    <li onclick='showShortcuts()'>Shortcuts</li>
+                                    <li class="separator"></li>
+                                    <li>Upgrade account</li>
+                                    <li>Registration</li>
+                                    <li class="separator"></li>
+                                    <li>Contact us</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                </div>
+                <div class="titlebar__infobar dragbale dselection">
+                    <span class="titlebar__info">Terminal Help</span>
+                </div>
+            </div>
+
+
+
+            <div class="text-right topBar__controls dselection">
+                <div class="far fa-window-minimize icon" id="min" aria-hidden="false"></div>
+                <div class="fas fa-window-maximize icon" id="max" aria-hidden="false"></div>
+                <div class="fas fa-times icon cross" id="close" aria-hidden="false"></div>
+
+            </div>
+        </div>
+        <!--End Header Title Bar-->
+
+
+        <!--Start Body Container-->
+        <div class="container-fluid codingScreen">
+            <!--Start Body main row -->
+            <div class="row codingScreen__main">
+                <!--Start body Left part Container-->
+                <div class="col-left main__left">
+                    <div class="main__left__icons"><i class="far fa-window-minimize icon" id="min"></i>
+                        <i class="fas fa-window-maximize icon" id="max"></i>
+                        <i class="fas fa-times icon cross" id="close"></i>
+                    </div>
+                    <div class="col main__left__explore">
+                        <div class="left__explore_title alert-dark">
+                            EXPLORER
+                        </div>
+                        <div class="left__explore_content">
+                            EXPLORERING FILEs
+                        </div>
+                    </div>
+                </div>
+                <!--End body Left part Container-->
+
+                <!--Start Code Container center col -->
+                <div class="col-center main__center">
+
+                    <!--Start filenameBar center col -->
+                    <div class="row filenamecontainer">
+                        <div class="col-md-9 text-left filenameBar">
+                            <span class="filenameBar__fileName"><i class="fas fa-code icon " id="max "></i> 
+                                index.js 
+                                <i class="fas fa-times icon filenameBar__close " id="filenameBar__close"></i></span>
+                        </div>
+                        <div class="col-md-3 text-right executionControls ">
+                            <> ||
+                                <>
+                        </div>
+                    </div>
+                    <!--End filenameBar center col -->
+                    <!--Start codeEditorRow center col -->
+                    <div class=" main__codingContainer">
+
+                        <div class="col col-code coding" id="coding">
+                            sicing elit. Modi voluptatibus enim facere molestiae ea quis itaque exercitationem quae quidem eligendi inventore pariatur iusto unde dicta obcaecati, voluptatem eum velit dignissimos. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi voluptatibus
+                            enim facere molestiae ea quis itaque exercitationem quae quidem eligendi inventore pariatur iusto unde dicta obcaecati, voluptatem eum velit dignissimos. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi voluptatibus
+                            enim facere molestiae ea quis itaque exercitationem quae quidem eligendi inventore pariatur iusto unde dicta obcaecati, voluptatem eum velit dignissimos.
+                        </div>
+                        <!--Start body Right part Container-->
+                        <div class="col-right main__right ">
+                            <div class="main__right__navigator col-10 ">Lorem ipsum dolor sit amet consectetur
+                            </div>
+                            <div class="main__right__icons col-2 "><i class="far fa-window-minimize icon " id="min "></i>
+                                <i class="fas fa-window-maximize icon " id="max "></i>
+                                <i class="fas fa-times icon cross " id="close "></i>
+                            </div>
+                        </div>
+                        <!--End body Right part Container-->
+
+                    </div>
+                    <!--Start codeEditorRow center col -->
+
+
+                </div>
+                <!--End Code Container col-->
+
+            </div>
+            <!--End Body main row -->
+
+        </div>
+        <!--End Body Container-->
+
+    </div>
+
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- <script src="assets/js/jquery-3.5.1.slim.min.js"></script> -->
+    <!--Jquery for Menu For Menu-->
+    <script src="assets/js/jquery.min.1.12.4.js"></script>
+    <!--Jquery for Menu For Menu-->
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!--JS For Menu-->
+    <script src="assets/js/jquery.menu.js"></script>
+    <!--JS For Menu-->
+
+    <script src="assets/js/font.awesome.js"></script>
+    <script src="assets/js/titlebar.js"></script>
+
+    <!-- Insert this line after script imports -->
+    <script>
+        if (window.module) module = window.module;
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+        /*!
+ * Bootstrap Reboot v4.3.1 (https://getbootstrap.com/)
+ * right 2011-2019 The Bootstrap Authors
+ * Copyright 2011-2019 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md)
+ */
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+        
+        .container-fluid,
+        .row,
+        .main__center,
+        .main__left__icons,
+        .main__right__icons {
+            margin: 0px;
+            padding: 0px;
+        }
+        /** 
+        * Title Bar Start
+        */
+        
+        .topBarWrapper {
+            display: grid;
+            grid-template-columns: 1fr auto;
+        }
+        
+        .topBar__titlebar {
+            display: grid;
+            grid-template-columns: auto auto 1fr;
+        }
+        
+        .titlebar__logo {
+            padding-right: 20px;
+        }
+        
+        .titlebar__menu,
+        .titlebar__infobar {
+            height: 40px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+        
+        .topBarWrapper,
+        .filenamecontainer {
+            background-color: #1c212e;
+            color: #fff;
+        }
+        
+        .topBar__controls {
+            padding-right: 0px;
+            justify-content: flex-end;
+        }
+        
+        .topBar__controls .icon {
+            padding: 17px 20px;
+            color: #e3e3e3
+        }
+        
+        .topBar__controls .icon:hover {
+            background-color: #a5e6f8;
+            color: #444444
+        }
+        
+        .topBar__controls .icon.cross:hover {
+            background-color: rgba(228, 2, 77, 0.822);
+            color: #fff;
+        }
+        
+        .topBar__info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            vertical-align: middle;
+            height: 50px;
+        }
+        
+        .dragbale {
+            -webkit-app-region: drag
+        }
+        
+        .dselection {
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-touch-callout: none;
+        }
+        /** 
+        * Title Bar End
+        */
+        /*Main Area / codeWrapper*/
+        /*
+        * Left Side Icon
+        */
+        
+        .codingScreen {
+            background-color: #212836;
+        }
+        
+        .codingScreen__main {
+            display: grid;
+            grid-template-columns: auto 1fr;
+        }
+        
+        .main__codingContainer {
+            display: grid;
+            grid-template-columns: 1fr auto;
+        }
+        
+        .main__left,
+        .main__right {
+            border-right: 1px solid #2c2c2c;
+            border-left: 1px solid #2c2c2c;
+        }
+        
+        .main__left,
+        .main__right {
+            background-color: #1c212e;
+            color: #fff;
+            display: flex;
+        }
+        
+        .main__center {
+            color: #fff;
+        }
+        
+        .filenameBar {
+            /* display: flex; */
+        }
+        
+        .filenameBar__fileName {
+            display: inline;
+            padding: 10px;
+            cursor: pointer;
+            background-color: #212836;
+        }
+        /* Coding Container*/
+        
+        .codingContainer {
+            padding-top: 20px;
+        }
